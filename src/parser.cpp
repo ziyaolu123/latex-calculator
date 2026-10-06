@@ -1,5 +1,6 @@
 #include "latexcalc/parser.hpp"
 #include "latexcalc/error.hpp"
+#include "latexcalc/i18n.hpp"
 #include <unordered_map>
 #include <unordered_set>
 
@@ -37,15 +38,15 @@ bool Parser::match(TokenType t) { if (check(t)) { ++pos_; return true; } return 
 Token Parser::advance() { return tokens_[pos_++]; }
 
 const Token& Parser::expect(TokenType t, const std::string& what) {
-    if (!check(t)) throw ParseError("期望 " + what + "，实际得到 " + tokenName(peek()));
+    if (!check(t)) throw ParseError(i18n::tr("期望 {}，实际得到 {}", "expected {}, got {}", { what, tokenName(peek()) }));
     return tokens_[pos_++];
 }
 
 ExprPtr Parser::parse() {
-    if (check(TokenType::End)) throw ParseError("表达式为空");
+    if (check(TokenType::End)) throw ParseError(i18n::tr("表达式为空", "empty expression"));
     auto e = parseExpression();
     if (!check(TokenType::End))
-        throw ParseError("表达式尾部出现多余内容：" + tokenName(peek()));
+        throw ParseError(i18n::tr("表达式尾部出现多余内容：{}", "unexpected trailing content: {}", { tokenName(peek()) }));
     return e;
 }
 
@@ -122,7 +123,7 @@ ExprPtr Parser::parsePrimary() {
         case TokenType::Command:
             return parseCommand();
         default:
-            throw ParseError("意外的符号 " + tokenName(t));
+            throw ParseError(i18n::tr("意外的符号 {}", "unexpected symbol {}", { tokenName(t) }));
     }
 }
 
@@ -152,7 +153,7 @@ ExprPtr Parser::parseCommand() {
         auto arg = parseUnary();
         return std::make_unique<FunctionExpr>(name, std::move(arg));
     }
-    throw ParseError("未知命令 \\" + name);
+    throw ParseError(i18n::tr("未知命令 \\{}", "unknown command \\{}", { name }));
 }
 
 ExprPtr Parser::parseArgument() {

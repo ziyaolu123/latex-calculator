@@ -59,6 +59,22 @@ REPL 快捷键：
 | `Ctrl+C` | 清空当前行 |
 | `Ctrl+D` | 退出（在空行时） |
 
+### 语言
+
+REPL 和错误信息支持中英文切换。
+
+优先级（从高到低）：
+
+1. `--lang=en` / `--lang=zh`（也支持 `-l en` / `-l zh`）
+2. `LATEXCALC_LANG` 环境变量
+3. 系统 `LANG` / `LC_ALL`
+4. 默认英文
+
+```
+./build/latexcalc --lang=zh
+LATEXCALC_LANG=en ./build/latexcalc
+```
+
 ### 支持的语法
 
 | 类别 | 语法 |

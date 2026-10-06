@@ -1,5 +1,6 @@
 #include "latexcalc/lexer.hpp"
 #include "latexcalc/error.hpp"
+#include "latexcalc/i18n.hpp"
 #include <cctype>
 #include <cstdlib>
 #include <unordered_set>
@@ -110,8 +111,10 @@ std::vector<Token> Lexer::tokenize() {
             case '[': t.type=TokenType::LBracket; t.text="["; ++pos_; break;
             case ']': t.type=TokenType::RBracket; t.text="]"; ++pos_; break;
             default:
-                throw LexError(std::string("无法识别的字符 '") + c +
-                               "'（位置 " + std::to_string(pos_) + "）");
+              throw LexError(i18n::tr(
+                  "无法识别的字符 '{}'（位置 {}）。乘除法请使用 \\times 和 \\div",
+                  "unrecognized character '{}' at position {}. Use \\times and \\div for multiplication and division.",
+                  { std::string(1, c), std::to_string(pos_) }));
         }
         tokens.push_back(t);
     }

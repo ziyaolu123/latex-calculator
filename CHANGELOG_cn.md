@@ -9,6 +9,14 @@
 
 ## [未发布]
 
+## [2.1.0] - 2026-10-07
+
+### 新增
+
+- 通过 `--lang=en` / `--lang=zh`（也支持 `-l`）切换中英文界面。
+  依次回退到 `LATEXCALC_LANG` 环境变量、系统 `LANG` / `LC_ALL`，默认英文。
+- 所有 REPL 提示和错误信息支持多语言。
+
 ## [2.0.0] - 2026-10-06
 
 ### 更改
@@ -51,7 +59,8 @@
 - GitHub Actions 三平台 CI：Ubuntu、macOS、Windows
 - MIT 许可证
 
-[未发布]: https://github.com/ziyaolu123/latex-calculator/compare/v1.0.1...HEAD
+[未发布]: https://github.com/ziyaolu123/latex-calculator/compare/v2.1.0...HEAD
+[2.1.0]: https://github.com/ziyaolu123/latex-calculator/compare/v2.0.0...v2.1.0
 [2.0.0]: https://github.com/ziyaolu123/latex-calculator/compare/v1.0.1...v2.0.0
 [1.0.1]: https://github.com/ziyaolu123/latex-calculator/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/ziyaolu123/latex-calculator/releases/tag/v1.0.0

@@ -9,6 +9,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.1.0] - 2026-10-07
+
+### Added
+
+- English / Chinese language switch via `--lang=en` / `--lang=zh` (also `-l`).
+  Falls back to the `LATEXCALC_LANG` environment variable, then system `LANG` / `LC_ALL`.
+  Default is English.
+- All REPL prompts and error messages are now translatable.
+
 ## [2.0.0] - 2026-10-06
 
 ### Changed
@@ -53,7 +62,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - GitHub Actions CI matrix: Ubuntu, macOS, Windows
 - MIT License
 
-[Unreleased]: https://github.com/ziyaolu123/latex-calculator/compare/v2.0.0...HEAD
+[Unreleased]: https://github.com/ziyaolu123/latex-calculator/compare/v2.1.0...HEAD
+[2.1.0]: https://github.com/ziyaolu123/latex-calculator/compare/v2.0.0...v2.1.0
 [2.0.0]: https://github.com/ziyaolu123/latex-calculator/compare/v1.0.1...v2.0.0
 [1.0.1]: https://github.com/ziyaolu123/latex-calculator/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/ziyaolu123/latex-calculator/releases/tag/v1.0.0

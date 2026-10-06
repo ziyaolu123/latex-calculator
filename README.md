@@ -59,6 +59,22 @@ REPL key bindings:
 | `Ctrl+C` | Clear current line |
 | `Ctrl+D` | Exit (on empty line) |
 
+## Language
+
+The REPL and error messages support English and Chinese.
+
+Priority (highest first):
+
+1. `--lang=en` / `--lang=zh` (also `-l en` / `-l zh`)
+2. `LATEXCALC_LANG` environment variable
+3. System `LANG` / `LC_ALL`
+4. Default: English
+
+```
+./build/latexcalc --lang=zh
+LATEXCALC_LANG=en ./build/latexcalc
+```
+
 ## Supported syntax
 
 | Category | Syntax |
