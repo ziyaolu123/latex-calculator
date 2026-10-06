@@ -63,7 +63,7 @@ REPL key bindings:
 
 | Category | Syntax |
 | --- | --- |
-| Operators | `+` `-` `*` `/` `^` |
+| Operators | `+` `-` `\times` `\div` `^` |
 | Fraction | `\frac{1}{2}` |
 | Square root | `\sqrt{2}` |
 | n-th root | `\sqrt[3]{8}` |

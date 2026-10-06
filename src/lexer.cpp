@@ -82,6 +82,19 @@ std::vector<Token> Lexer::tokenize() {
                 continue;
             }
             if (kIgnoredCommands.count(t.text)) continue;
+
+            // \times → Times，\div → Div
+            if (t.text == "times") {
+                t.type = TokenType::Times;
+                tokens.push_back(t);
+                continue;
+            }
+            if (t.text == "div") {
+                t.type = TokenType::Div;
+                tokens.push_back(t);
+                continue;
+            }
+
             tokens.push_back(t);
             continue;
         }
@@ -89,8 +102,6 @@ std::vector<Token> Lexer::tokenize() {
         switch (c) {
             case '+': t.type=TokenType::Plus;     t.text="+"; ++pos_; break;
             case '-': t.type=TokenType::Minus;    t.text="-"; ++pos_; break;
-            case '*': t.type=TokenType::Star;     t.text="*"; ++pos_; break;
-            case '/': t.type=TokenType::Slash;    t.text="/"; ++pos_; break;
             case '^': t.type=TokenType::Caret;    t.text="^"; ++pos_; break;
             case '(': t.type=TokenType::LParen;   t.text="("; ++pos_; break;
             case ')': t.type=TokenType::RParen;   t.text=")"; ++pos_; break;
@@ -113,8 +124,8 @@ std::string tokenName(const Token& t) {
         case TokenType::Command:  return "命令 '\\" + t.text + "'";
         case TokenType::Plus:     return "'+'";
         case TokenType::Minus:    return "'-'";
-        case TokenType::Star:     return "'*'";
-        case TokenType::Slash:    return "'/'";
+        case TokenType::Times:    return "'\\times'";
+        case TokenType::Div:      return "'\\div'";
         case TokenType::Caret:    return "'^'";
         case TokenType::LParen:   return "'('";
         case TokenType::RParen:   return "')'";

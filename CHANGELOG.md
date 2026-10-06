@@ -9,6 +9,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.0.0] - 2026-10-06
+
+### Changed
+
+- `*` and `/` are no longer accepted as operators. Use `\times` and `\div` instead.
+  Implicit multiplication (`2\pi`, `2(3+4)`) and `\frac{}{}` are unaffected.
+- Standalone `*` and `/` now raise a lexer error suggesting `\times` / `\div`.
+
+### Removed
+
+- Bare `*` and `/` operators. Input containing them now raises a lexer error
+  with a hint pointing to `\times` / `\div`.
+
 ## [1.0.1] - 2026-10-06
 
 ### Added
@@ -40,6 +53,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - GitHub Actions CI matrix: Ubuntu, macOS, Windows
 - MIT License
 
-[Unreleased]: https://github.com/ziyaolu123/latex-calculator/compare/v1.0.1...HEAD
+[Unreleased]: https://github.com/ziyaolu123/latex-calculator/compare/v2.0.0...HEAD
+[2.0.0]: https://github.com/ziyaolu123/latex-calculator/compare/v1.0.1...v2.0.0
 [1.0.1]: https://github.com/ziyaolu123/latex-calculator/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/ziyaolu123/latex-calculator/releases/tag/v1.0.0

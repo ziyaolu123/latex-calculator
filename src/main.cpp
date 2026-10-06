@@ -7,7 +7,7 @@
 namespace {
 
 const char* kBanner =
-    "LaTeX Calculator v1.0.1\n"
+    "LaTeX Calculator v2.0.0\n"
     "输入 LaTeX 数学表达式回车计算，:help 帮助，:quit 退出。\n";
 
 void printHelp() {
@@ -18,7 +18,7 @@ void printHelp() {
         "  \\sqrt[3]{27} + 2^{10}\n"
         "  \\ln{\\e} + \\log{1000}\n"
         "\n"
-        "运算符：+ - * / ^   （支持隐式乘法：2\\pi、2(3+4)）\n"
+        "运算符：+ - \\times \\div ^   （支持隐式乘法：2\\pi、2(3+4)）\n"
         "结构：\\frac{}{} \\sqrt{} \\sqrt[n]{}  () {} []\n"
         "函数：\\sin \\cos \\tan \\cot \\sec \\csc\n"
         "      \\arcsin \\arccos \\arctan\n"

@@ -7,7 +7,7 @@ namespace latexcalc {
 enum class TokenType {
     Number,
     Command,
-    Plus, Minus, Star, Slash, Caret,
+    Plus, Minus, Times, Div, Caret,
     LParen, RParen,
     LBrace, RBrace,
     LBracket, RBracket,

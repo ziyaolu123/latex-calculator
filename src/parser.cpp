@@ -74,9 +74,9 @@ bool Parser::startsPrimary() const {
 ExprPtr Parser::parseTerm() {
     auto lhs = parseUnary();
     while (true) {
-        if (match(TokenType::Star))
+        if (match(TokenType::Times))
             lhs = std::make_unique<BinaryExpr>(BinOp::Mul, std::move(lhs), parseUnary());
-        else if (match(TokenType::Slash))
+        else if (match(TokenType::Div))
             lhs = std::make_unique<BinaryExpr>(BinOp::Div, std::move(lhs), parseUnary());
         else if (startsPrimary())
             lhs = std::make_unique<BinaryExpr>(BinOp::Mul, std::move(lhs), parseUnary());

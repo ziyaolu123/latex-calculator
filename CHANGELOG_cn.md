@@ -9,6 +9,17 @@
 
 ## [未发布]
 
+## [2.0.0] - 2026-10-06
+
+### 更改
+
+- 不再接受 `*` 和 `/` 作为运算符，请改用 `\times` 和 `\div`。
+  隐式乘法（`2\pi`、`2(3+4)`）和 `\frac{}{}` 不受影响。
+
+### 移除
+
+- 单独的 `*` 和 `/` 运算符。含它们的输入会抛出词法错误，并提示改用 `\times` / `\div`。
+
 ## [1.0.1] - 2026-10-06
 
 ### 新增
@@ -41,5 +52,6 @@
 - MIT 许可证
 
 [未发布]: https://github.com/ziyaolu123/latex-calculator/compare/v1.0.1...HEAD
+[2.0.0]: https://github.com/ziyaolu123/latex-calculator/compare/v1.0.1...v2.0.0
 [1.0.1]: https://github.com/ziyaolu123/latex-calculator/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/ziyaolu123/latex-calculator/releases/tag/v1.0.0
