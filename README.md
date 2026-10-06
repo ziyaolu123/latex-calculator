@@ -2,41 +2,86 @@
 ![License](https://img.shields.io/github/license/ziyaolu123/latex-calculator)
 ![C++](https://img.shields.io/badge/C%2B%2B-17-blue)
 
-# LaTeX Calculator (C++17)
+# LaTeX Calculator
 
-零依赖的 LaTeX 数学表达式计算器。
+**English** | [简体中文](README_cn.md)
 
-## 构建
+A zero-dependency LaTeX math expression calculator written in C++17.
 
+## Features
+
+- Parses core LaTeX math syntax: `\frac{}{}`, `\sqrt{}`, `\sqrt[n]{}`, `^`, grouping
+- Trig / inverse trig / hyperbolic / log / exp / abs functions
+- Built-in constants: `\pi` `\tau` `\e` `\phi`
+- Implicit multiplication: `2\pi`, `2(3+4)`, `\frac{1}{2}x`
+- Silently ignores typography commands: `\left` `\right` `\displaystyle` `\quad`
+- Interactive REPL with **history (↑/↓)** and **cursor movement (←/→, Home/End, Delete)**
+- Clear error messages for unmatched parens, division by zero, domain violations
+
+## Build
+
+Requires CMake 3.16+ and a C++17 compiler.
+
+    git clone https://github.com/ziyaolu123/latex-calculator.git
+    cd latex-calculator
     cmake -B build -DCMAKE_BUILD_TYPE=Release
     cmake --build build -j
 
-## 运行
+Output: `build/latexcalc` (`build/Release/latexcalc.exe` on Windows).
+
+## Run
+
+### One-shot
 
     ./build/latexcalc "\frac{1}{2} + \sqrt{3}"
-    ./build/latexcalc          # 进入交互 REPL
+    1.36602540378444
 
-## 支持语法
+    ./build/latexcalc "\sqrt[3]{27} + 2^{10}"
+    1027
 
-| 类别 | 语法 |
+### Interactive REPL
+
+    ./build/latexcalc
+    > \frac{1}{2} + \frac{1}{3}
+    = 0.833333333333333
+    > :help
+    > :quit
+
+REPL key bindings:
+
+| Key | Action |
 | --- | --- |
-| 运算符 | `+` `-` `*` `/` `^` |
-| 分数 | `\frac{1}{2}` |
-| 平方根 | `\sqrt{2}` |
-| n 次根 | `\sqrt[3]{8}` |
-| 三角函数 | `\sin \cos \tan \cot \sec \csc` |
-| 反三角 | `\arcsin \arccos \arctan` |
-| 双曲 | `\sinh \cosh \tanh` |
-| 对数/指数 | `\ln \log \lg \exp \abs` |
-| 常量 | `\pi \tau \e \phi` |
+| `↑` / `↓` | Browse history |
+| `←` / `→` | Move cursor |
+| `Home` / `End` | Jump to line start / end |
+| `Backspace` / `Delete` | Delete char before / at cursor |
+| `Enter` | Evaluate |
+| `Ctrl+C` | Clear current line |
+| `Ctrl+D` | Exit (on empty line) |
 
-隐式乘法支持：`2\pi`、`2(3+4)`、`\frac{1}{2}4`。
-`\left \right \displaystyle \quad` 等排版命令会被忽略。
+## Supported syntax
 
-## 测试
+| Category | Syntax |
+| --- | --- |
+| Operators | `+` `-` `*` `/` `^` |
+| Fraction | `\frac{1}{2}` |
+| Square root | `\sqrt{2}` |
+| n-th root | `\sqrt[3]{8}` |
+| Trig | `\sin \cos \tan \cot \sec \csc` |
+| Inverse trig | `\arcsin \arccos \arctan` |
+| Hyperbolic | `\sinh \cosh \tanh` |
+| Log / exp | `\ln \log \lg \exp \abs` |
+| Constants | `\pi \tau \e \phi` |
+
+## Test
 
     ctest --test-dir build --output-on-failure
 
 ## License
 
 MIT
+
+## Changelog
+
+- [English](CHANGELOG.md)
+- [简体中文](CHANGELOG_cn.md)
