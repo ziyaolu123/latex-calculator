@@ -1,3 +1,7 @@
+![CI](https://github.com/ziyaolu123/latex-calculator/actions/workflows/ci.yml/badge.svg)
+![License](https://img.shields.io/github/license/ziyaolu123/latex-calculator)
+![C++](https://img.shields.io/badge/C%2B%2B-17-blue)
+
 # LaTeX Calculator (C++17)
 
 零依赖的 LaTeX 数学表达式计算器。
